@@ -1,0 +1,307 @@
+<html><head>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+            <title>ADITI - HW3</title>
+        <style>
+    /*************************************************************
+      COMMON 
+    **************************************************************/
+    *,
+    *::before,
+    *::after,
+    :root {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      overflow: hidden;
+      height: 100%;
+    }
+   
+    body {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: 100vh;
+      -webkit-perspective: 1px;
+              perspective: 1px;
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: Helvetica sans-serif;
+    }
+   
+    /*************************************************************
+      NAV BAR 
+    **************************************************************/
+
+    .navbarDiv
+            {
+                background-color: white;
+                height: 30px;
+                overflow: hidden;
+                font-size: 20px;
+                padding: 15px;
+                position: sticky;
+                top:0;
+                z-index: 2
+            }
+   
+            .navbarDiv span{
+                color:grey;
+                float: right;
+                margin-right: 40px;
+                font-family: Raleway, sans-serif;
+                font-size: 10.5px;
+                display: inline-flex;
+                display: -webkit-inline-flex;
+            }
+   
+            .navbarDiv a{
+                padding: 10px;
+                color: inherit;
+                text-decoration: none;
+            }
+    
+    /*************************************************************
+      PROFILE 
+    **************************************************************/
+    
+    .profileSection {
+      position: relative;
+      max-height: 490px;
+      width: inherit;
+
+      -webkit-transform-style: inherit;
+              transform-style: inherit;
+      z-index: -1;
+    }
+   
+    .profileSection::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: block;
+      background: url(https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/15/16/china-coffee-cup.jpg?w968h681) top center fixed no-repeat;
+      background-size: cover;
+      transform: translateZ(-1.5px) scale(3.5);
+      max-height: 490px;
+      z-index: -2;
+    }
+
+    #profile{
+        height: 170px;
+        width: 350px;
+        background-color: white;
+        position: absolute;
+        margin-top: 60px;
+        margin-left: 25%;
+        padding-top: 30px;
+        padding-left: 25px;
+    }
+
+    #profilePic{
+        background: url(https://daks2k3a4ib2z.cloudfront.net/57e30a1f8da457f069b4df03/59edc5d10b36ff0001835550_AM-headshot-square.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100px;
+        height:145px;
+        float: left;
+    }
+
+    #profileInfo{
+        margin-right: 80px;
+        color: #48267c;
+        float: right;
+        line-height: 1;
+        font-family: Raleway, sans-serif
+    }
+   
+   
+    /*************************************************************
+      PORTFOLIO SECTION
+    **************************************************************/
+    section {
+      position: relative;
+      min-height: 400px;
+      width: inherit;
+      position: relative;
+      -webkit-transform-style: inherit;
+              transform-style: inherit;
+    }
+   
+    .sectionWOParallax {
+      background: #fafafa;
+      box-shadow: 0 0 20px #333;
+      z-index: 1;
+    }
+
+    .portfolioSub{
+            width: 33.33%;
+            float: left;
+            color: white;
+            font-family: Raleway, sans-serif;
+            z-index: 2;
+            height: 400px;
+        }
+   
+    .smallTitle{
+        font-size: 10px;
+        line-height: 0.5;
+        margin-top: 180px;
+        margin-left: 30px;
+    }
+
+    .bigTitle{
+        font-size: 18px;
+        line-height: 2;
+        margin-left: 30px;
+    }
+
+    .sectionWParallax::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: block;
+      background: url(https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80g) top center fixed no-repeat;
+      background-size: cover;
+      -webkit-transform: translateZ(-.5px) scale(1.7);
+              transform: translateZ(-.5px) scale(1.7);
+      z-index: -1;
+    }
+   
+    /*************************************************************
+      LAST SECTION
+    **************************************************************/
+
+    .aboutMeSection{
+        min-height: 310px;
+        margin-top: -30px;
+        background-color: #48267c;
+        color: white;
+        padding-top: 45px;
+        font-family: Raleway, sans-serif;
+    }
+
+    .contactMeSection{
+            background: white;
+            color: #48267c;
+            min-height: 300px;
+            padding:90px
+        }
+
+    #contactmeText{
+        float: left;
+        color: #48267c;
+        font-family: Raleway, sans-serif;
+        /* margin-top: 80px;
+        margin-left: 90px */
+    }
+
+    .contactmeForm{
+        float: left;
+        font-family: Raleway, sans-serif;
+        width: 270px;
+        margin-left: 50px;
+        margin-top: 50px;
+        
+    }
+
+    .contactmeForm form input{
+        height: 20px;
+        width: 270px;
+        border: solid 1px #48267c;
+        color: #48267c;
+        padding: 10px;
+        margin-bottom: 3px
+    }
+
+    #onlyButton{
+        background-color: #48267c; 
+        color:#fafafa; 
+        width: 70px; 
+        height: 30px; 
+        float:right;
+        border: none;
+        font-family: times serif;
+        margin-top:5px;
+    }
+
+    </style>
+    </head>
+   
+   
+    <body data-gr-c-s-loaded="true">
+        <div class="navbarDiv">
+            <i style="color: #482f85; margin-left: 40px">Migi Bell</i>
+            <span>
+                <a href="#">HOME</a>
+                <a href="#">PORTFOLIO</a>
+                <a href="#">ABOUT ME</a>
+                <a href="#">CONTACT ME</a>
+            </span>
+             </div>
+    <section class="profileSection">
+      <div id="profile">
+          <div id="profilePic">
+          </div>
+          <div id="profileInfo">
+                <i style="font-family: Raleway serif; font-size:12px ">Migi Bell</i>
+                <p style="font-size: 25px; font-weight: normal;">FOOD</p>
+                <strong style="font-size:35px; -webkit-text-fill-color:#48267c; -webkit-text-stroke: 1px #48267c">STYLIST.</strong>
+                <hr style=" color: #48267c;
+                            margin-top: 25px;
+                            width: 45px;
+                            height: 2px;
+                            background-color: #48267c;">
+                <h3 style="font-size: 15px; font-weight: normal; margin-top: 30px;">PORTFOLIO &gt;</h3>
+          </div>
+      </div>
+    </section>
+    <section class="sectionWOParallax">
+            <div class="portfolioSub" style="background-color:#5098ba;">
+            <p class="smallTitle">PROJECTS</p>
+            <strong class="bigTitle">PROJECTS &gt;</strong>
+            </div>
+            <div class="portfolioSub" style="background-color:#48267c;">
+                    <p class="smallTitle">PROJECTS</p>
+                    <strong class="bigTitle">EDITORIAL &gt;</strong>
+            </div>
+            <div class="portfolioSub" style="background-color:#9a69c2;">
+                    <p class="smallTitle">PROJECTS</p>
+                    <strong class="bigTitle">INNOVATIVE &gt;</strong>
+            </div>
+    </section>
+    <section class="sectionWParallax">
+        
+    </section>
+    <section class="sectionWOParallax aboutMeSection">
+           <p style="font-size: x-small; font-weight: bolder; line-height: 4; margin-left: 90px">-Hello-</p> 
+           <p style="margin-left: 90px; font-size: 32px; width: 650px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </section>
+    <section class="sectionWOParallax contactMeSection">
+        <div id="contactmeText">
+            <p style="font-weight:bolder; font-size:12px; line-height: 4">-Get In Touch-</p>
+            <p style="font-size: 30px;">Contact Me</p>
+            <p style="font-size:12px; margin-top:5px">700 Morey Francois Street, San Francisco, CA 94148
+            <br>
+            info@lorem.com | Tel: 123-555-1212
+            </p>
+            <p style="margin-top:80px; font-size: smaller">© 2023 by Migi Bell</p>
+        </div>
+        <div class="contactmeForm">
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Phone">
+                <input type="text" placeholder="Type your message here..." style="height:80px">
+                <button id="onlyButton"><i>Submit</i></button>
+            </form>
+        </div>
+    </section>
+    
+<div style="text-align:right;position:fixed;bottom:3px;right:3px;width:100%;z-index:999999;cursor:pointer;line-height:0;display:block;"><a target="_blank" href="https://www.freewebhostingarea.com" title="Free Web Hosting with PHP5 or PHP7"><img alt="Free Web Hosting" src="https://www.freewebhostingarea.com/images/poweredby.png" style="border-width: 0px;width: 180px; height: 45px; float: right;"></a></div>
+
+    </body></html>
